@@ -1,0 +1,28 @@
+name: smoke
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  webmcp-skill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx playwright install --with-deps chromium
+
+      - run: npm run smoke
+
+      - run: npx -y skills add . --list
+
+      - run: node webmcp/scripts/webmcp-playwright.mjs probe https://store.nekuda.ai --timeout-ms 15000 --wait-ms 1000 --json
+
+      - run: node webmcp/scripts/webmcp-playwright.mjs call https://store.nekuda.ai search_products '{"query":"hats","max_results":1}' --timeout-ms 15000 --wait-ms 1000 --json

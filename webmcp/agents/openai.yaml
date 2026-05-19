@@ -1,0 +1,4 @@
+interface:
+  display_name: "WebMCP"
+  short_description: "Discover and interact with WebMCP-enabled websites."
+  default_prompt: "Find WebMCP-enabled websites, inspect their tools, and use a Playwright-controlled browser runtime to call safe WebMCP tools when available."
