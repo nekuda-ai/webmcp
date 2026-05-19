@@ -12,15 +12,16 @@ This repo contains the `webmcp` skill. It teaches agents to discover WebMCP-enab
 
 ```bash
 npm install
+npx -y skills-ref validate .
 npx playwright install chromium
 npm run smoke
-node webmcp/scripts/webmcp-playwright.mjs probe https://store.nekuda.ai
-node webmcp/scripts/webmcp-playwright.mjs list https://store.nekuda.ai
+node scripts/webmcp-playwright.mjs probe https://store.nekuda.ai
+node scripts/webmcp-playwright.mjs list https://store.nekuda.ai
 ```
 
 For native WebMCP interaction, use Chrome Canary/Beta with `chrome://flags/#enable-webmcp-testing` enabled:
 
 ```bash
 export WEBMCP_CHROME="/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
-node webmcp/scripts/webmcp-playwright.mjs list https://store.nekuda.ai --headed
+node scripts/webmcp-playwright.mjs list https://store.nekuda.ai --headed
 ```

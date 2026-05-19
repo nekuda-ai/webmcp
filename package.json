@@ -3,10 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "directory:stats": "node webmcp/scripts/webmcp-directory.mjs stats",
-    "webmcp:probe": "node webmcp/scripts/webmcp-playwright.mjs probe https://store.nekuda.ai",
-    "webmcp:list": "node webmcp/scripts/webmcp-playwright.mjs list https://store.nekuda.ai",
-    "smoke": "node webmcp/scripts/webmcp-directory.mjs search checkout --limit 3 && node webmcp/scripts/webmcp-directory.mjs lookup https://store.nekuda.ai"
+    "directory:stats": "node scripts/webmcp-directory.mjs stats",
+    "webmcp:probe": "node scripts/webmcp-playwright.mjs probe https://store.nekuda.ai",
+    "webmcp:list": "node scripts/webmcp-playwright.mjs list https://store.nekuda.ai",
+    "smoke": "node scripts/webmcp-directory.mjs search checkout --limit 3 && node scripts/webmcp-directory.mjs lookup https://store.nekuda.ai"
   },
   "devDependencies": {
     "playwright": "latest"
